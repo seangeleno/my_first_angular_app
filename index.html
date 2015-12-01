@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html ng-app> //custom html attribute just like src id class etc
+<html ng-app='myApp'> <!--custom html attribute just like src id class etc -->
   <head>
     <meta charset="utf-8">
     <title>First Angular App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--custom attributes such as ted or whatever you want can be added in HTML 5, angular
+    takes advantage of this -->
   </head>
-  //custom attributes such as ted or whatever you want can be added in HTML 5, angular
-  //takes advantage of this
-  <body ted='ted' class="container">
+  <body ted='ted' ng-controller="myController as myCtrl" class="container">
     <h1>My First Angular App!</h1>
 
+    <input type="text" ng-model="myCtrl.name" name="name" value="">
+    <h5>{{ myCtrl.name }}</h5>
+
+
+    <div ng-controller="secondController as sCtrl" class="">
+      <h1>{{ sCtrl.name }}</h1>
+    </div>
+
+    <div ng-controller="thirdController as tCtrl" class="">
+      <h1>{{ tCtrl.name }}</h1>
+    </div>
+
+
   </body>
+  <script type="text/javascript">
+    console.log($('.container').attr('ted'))
+  </script>
 </html>
